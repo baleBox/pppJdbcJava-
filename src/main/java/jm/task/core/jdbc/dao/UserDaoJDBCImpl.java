@@ -23,7 +23,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
                 "age int NOT NULL)";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.executeUpdate();
-            System.out.println("Users table was created.");
+            System.out.println("Users table was created.\n");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -56,7 +56,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setLong(1, id);
             preparedStatement.executeUpdate();
-            System.out.println("User " + id + " has been removed from DB");
+            System.out.println("User " + id + " has been removed from DB.\n");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -78,6 +78,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+        System.out.println("All users \"Users\" have been get.\n" + usersList +"\n");
         return usersList;
     }
 
