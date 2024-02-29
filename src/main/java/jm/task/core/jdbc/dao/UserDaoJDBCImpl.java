@@ -14,7 +14,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
 
     }
 
-    public void createUsersTable() throws SQLException {
+    public void createUsersTable() {
 
         String query = "CREATE TABLE IF NOT EXISTS Users" +
                 "(id bigint PRIMARY KEY AUTO_INCREMENT," +
@@ -39,7 +39,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
     }
 
     public void saveUser(String name, String lastName, byte age) {
-        String query = "INSERT INTO Users (name, lastName, age) VALUES (?, ?, ?)";
+        String query = "INSERT INTO Users (name,lastName,age) VALUES (?, ?, ?)";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
             preparedStatement.setString(1, name);
             preparedStatement.setString(2, lastName);
@@ -62,7 +62,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         }
     }
 
-    public List<User> getAllUsers() throws SQLException {
+    public List<User> getAllUsers() {
         List<User> usersList = new ArrayList<>();
         String query = "SELECT * FROM Users";
         try (PreparedStatement preparedStatement = connection.prepareStatement(query)) {
@@ -78,7 +78,7 @@ public class UserDaoJDBCImpl extends Util implements UserDao {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        System.out.println("All users \"Users\" have been get.\n" + usersList +"\n");
+        System.out.println("All users \"Users\" have been get.\n" + usersList + "\n");
         return usersList;
     }
 
