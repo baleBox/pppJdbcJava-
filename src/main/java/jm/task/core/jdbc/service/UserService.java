@@ -2,11 +2,10 @@ package jm.task.core.jdbc.service;
 
 import jm.task.core.jdbc.model.User;
 
-import java.sql.SQLException;
 import java.util.List;
 
 public interface UserService {
-    void createUsersTable() throws SQLException;
+    void createUsersTable() ;
 
     void dropUsersTable();
 
@@ -14,7 +13,7 @@ public interface UserService {
 
     void removeUserById(long id);
 
-    List<User> getAllUsers() throws SQLException;
+    List<User> getAllUsers();
 
     void cleanUsersTable();
 }
